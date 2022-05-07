@@ -16,13 +16,11 @@
                 <view:DashboardView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:WindTurbinesViewModel}">
-                <view:WindTurbinesView/>
+            <DataTemplate DataType="{x:Type viewModel:WindFarmViewModel}">
+                <view:WindFarmView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:SolarPanelsViewModel}">
-                <view:SolarPanelsView/>
-            </DataTemplate>
+          
         </ResourceDictionary>
     </Application.Resources>
 </Application>

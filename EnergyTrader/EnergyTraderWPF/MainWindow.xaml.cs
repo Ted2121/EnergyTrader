@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EnergyTraderWPF.API;
+
 
 namespace EnergyTraderWPF
 {
@@ -20,9 +22,17 @@ namespace EnergyTraderWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
+            ApiHelper.InitializeClient();
+        }
+
+        private async Task LoadWeather(double lat, double lon)
+        {
+            var weather = await WeatherInformationProcessor.LoadWeatherInformation(lat, lon);
+
         }
     }
 }

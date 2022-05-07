@@ -10,7 +10,8 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen">
 
     <Window.DataContext>
         <viewModel:MainViewModel/>
@@ -48,22 +49,22 @@
 
                 </RadioButton>
 
-                <RadioButton Content="Wind Turbines"
+                <RadioButton Content="Wind Farm"
                              Height="50"
                              Foreground="White"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding WindTurbinesViewCommand}">
+                             Command="{Binding WindFarmViewCommand}">
 
 
                 </RadioButton>
 
-                <RadioButton Content="Solar Panels"
+                <RadioButton Content="Solar Park"
                              Height="50"
                              Foreground="White"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding SolarPanelsViewCommand}">
+                             Command="{Binding SolarParkViewCommand}">
 
 
                 </RadioButton>

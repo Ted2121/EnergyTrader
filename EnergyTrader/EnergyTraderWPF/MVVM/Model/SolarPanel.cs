@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EnergyTraderWPF.MVVM.ViewModel
+namespace EnergyTraderWPF.MVVM.Model
 {
-    public class DashboardViewModel
+    public class SolarPanel
     {
     }
 }

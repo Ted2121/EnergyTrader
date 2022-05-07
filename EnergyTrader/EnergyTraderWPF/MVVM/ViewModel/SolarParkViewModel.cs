@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnergyTraderWPF.MVVM.ViewModel
 {
-    class WindTurbinesViewModel
+    public class SolarParkViewModel
     {
     }
 }

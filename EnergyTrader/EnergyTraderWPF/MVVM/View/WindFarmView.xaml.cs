@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace EnergyTraderWPF.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for WindTurbinesView.xaml
+    /// Interaction logic for WindFarmView.xaml
     /// </summary>
-    public partial class WindTurbinesView : UserControl
+    public partial class WindFarmView : UserControl
     {
-        public WindTurbinesView()
+        public WindFarmView()
         {
             InitializeComponent();
         }

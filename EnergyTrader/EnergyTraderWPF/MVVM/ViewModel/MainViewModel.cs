@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace EnergyTraderWPF.MVVM.ViewModel
 {
-    class MainViewModel : ObservableObject
+    public class MainViewModel : ObservableObject
     {
         public RelayCommand DashBoardViewCommand { get; set; }
-        public RelayCommand WindTurbinesViewCommand { get; set; }
-        public RelayCommand SolarPanelsViewCommand { get; set; }
+        public RelayCommand WindFarmViewCommand { get; set; }
+        public RelayCommand SolarParkViewCommand { get; set; }
         public DashboardViewModel DashboardVM { get; set; }
-        public WindTurbinesViewModel WindTurbinesVM { get; set; }
-        public SolarPanelsViewModel SolarPanelsVM { get; set; }
+        public WindFarmViewModel WindFarmVM { get; set; }
+        public SolarParkViewModel SolarParkVM { get; set; }
         private object _currentView;
 
         public object CurrentView
@@ -28,8 +28,8 @@ namespace EnergyTraderWPF.MVVM.ViewModel
         public MainViewModel()
         {
             DashboardVM = new DashboardViewModel();
-            WindTurbinesVM = new WindTurbinesViewModel();
-            SolarPanelsVM = new SolarPanelsViewModel();
+            WindFarmVM = new WindFarmViewModel();
+            SolarParkVM = new SolarParkViewModel();
             CurrentView = DashboardVM;
 
             DashBoardViewCommand = new RelayCommand(o => 
@@ -37,14 +37,14 @@ namespace EnergyTraderWPF.MVVM.ViewModel
                 CurrentView = DashboardVM;
             });
 
-            WindTurbinesViewCommand = new RelayCommand(o =>
+            WindFarmViewCommand = new RelayCommand(o =>
             {
-                CurrentView = WindTurbinesVM;
+                CurrentView = WindFarmVM;
             });
 
-            SolarPanelsViewCommand = new RelayCommand(o =>
+            SolarParkViewCommand = new RelayCommand(o =>
             {
-                CurrentView = SolarPanelsVM;
+                CurrentView = SolarParkVM;
             });
 
         }
