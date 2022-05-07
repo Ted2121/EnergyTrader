@@ -11,7 +11,7 @@ namespace EnergyTraderWPF.API
 {
     public static class ApiHelper
     {
-        private static readonly string key = GetKeyFromTextFile("API/Key.txt");
+        public static string APIKey { get; } = "75b38672184fbcb994200c92948dacd6";
         // we only allow 1 per application
         public static HttpClient ApiClient { get; set; }
         
@@ -27,15 +27,8 @@ namespace EnergyTraderWPF.API
 
         }
 
-        private static string GetKeyFromTextFile(string path)
-        {
-            StreamReader sr = new StreamReader(path);
-            return sr.ReadToEnd();
-        }
+    
 
-        public static string GetKey()
-        {
-            return key;
-        }
+    
     }
 }

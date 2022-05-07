@@ -6,7 +6,100 @@
              xmlns:local="clr-namespace:EnergyTraderWPF.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="210"/>
+            <ColumnDefinition Width="200"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="row1" Height="75"/>
+            <RowDefinition x:Name="row2" Height="Auto"/>
+            <RowDefinition x:Name="row3" Height="Auto"/>
+            <RowDefinition x:Name="row4" Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Wind Farm Output"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       FontSize="22"/>
+
+        <StackPanel Grid.Row="1"
+                    Margin="20, 0, 10, 0">
+            <TextBlock 
+                   Text="Wind Farm Name"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Foreground="White"
+                   FontSize="18"
+                   />
+            <TextBlock 
+                   Text="No. of Turbines"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Foreground="White"
+                   FontSize="18"
+                   />
+
+            <TextBlock Text="Turbine Capacity"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="18"
+                       />
+
+            <TextBlock Text="Total Nominal Power"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="18"
+                       />
+
+
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2"
+                    Margin="20, 10, 10, 0">
+            <TextBlock Text="Latitude"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="18"
+                       />
+            <TextBlock Text="Longitude"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="18"
+                       />
+        </StackPanel>
+        <StackPanel Grid.Row="3"
+                    Margin="20, 10, 10, 0">
+            <TextBlock Text="Wind Speed"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="18"
+                       />
+            <TextBlock Text="Expected Load Rate"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="18"
+                       />
+            <TextBlock Text="Expected Production"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="18"
+                       />
+        </StackPanel>
+
+
+
     </Grid>
+
 </UserControl>

@@ -15,7 +15,7 @@ namespace EnergyTraderWPF.API
     {
         public static async Task<WeatherInformation.Root> LoadWeatherInformation(double lat, double lon)
         {
-            string url = $"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={ApiHelper.GetKey}";
+            string url = $"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={ApiHelper.APIKey}";
 
             // opens a new request for the api client and awaits for response
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url)){
