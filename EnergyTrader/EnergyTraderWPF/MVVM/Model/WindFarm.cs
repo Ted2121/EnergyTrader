@@ -8,15 +8,17 @@ namespace EnergyTraderWPF.MVVM.Model
 {
     public class WindFarm
     {
-        public List<WindTurbine> WindTurbines { get; set; }
-        // hardcoded values for the purpose of this prototype
-        public string Location { get; } = "Nysted";
-        public double Lat { get; } = 54.55;
-        public double Lon { get; } = 11.71;
-
-        public WindFarm(List<WindTurbine> windTurbines)
+        public string Name{ get; set; }
+        public int NumberOfTurbines { get; set; }
+        public int TurbineCapacity { get; set; }
+        public int TotalNominalPower { get; set; }
+        public double Lat { get; set; }
+        public double Lon { get; set; }
+        public double ExpectedLoadRate { get; set; }
+        public double ExpectedProduction { get; set; }
+        public WindFarm()
         {
-            WindTurbines = windTurbines;
+            
         }
     }
 
