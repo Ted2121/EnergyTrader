@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid>
+    <Grid Loaded="Window_Loaded">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="210"/>
             <ColumnDefinition Width="200"/>
@@ -102,7 +102,7 @@
                     Grid.Column="1"
                     Margin="10, 20, 10, 0">
             <TextBlock 
-                   Text="N/A"
+                   Text=""
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
                    Foreground="White"

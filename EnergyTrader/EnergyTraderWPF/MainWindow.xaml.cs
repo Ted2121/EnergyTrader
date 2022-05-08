@@ -29,10 +29,10 @@ namespace EnergyTraderWPF
             ApiHelper.InitializeClient();
         }
 
-        private async Task LoadWeather(double lat, double lon)
-        {
-            var weather = await WeatherInformationProcessor.LoadWeatherInformation();
+        //private async Task LoadWeather(double lat, double lon)
+        //{
+        //    var weather = await WeatherInformationProcessor.LoadWeatherInformation();
 
-        }
+        //}
     }
 }

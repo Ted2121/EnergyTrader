@@ -81,8 +81,9 @@ namespace EnergyTraderWPF.MVVM.Model
             double effectivePower;
          
             effectivePower = leftPower + ((rightPower - leftPower) / (rightWind - leftWind)) * (actualWindSpeed - leftWind);
-            return effectivePower;
+            return Math.Round(effectivePower, 2);
         }
+
         public List<double> GetEffectivePowersList()
     {
         foreach(double windSpeed in weatherInformation.Wind_Speed)

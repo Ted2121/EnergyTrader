@@ -26,6 +26,11 @@ namespace EnergyTraderWPF.MVVM.View
         {
             WindFarm windFarm = new WindFarm("Nysted", 72, 2300);
             InitializeComponent();
+            
+        }
+
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
             WeatherInformationProcessor.LoadWeatherInformation();
         }
     }
