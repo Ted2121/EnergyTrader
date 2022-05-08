@@ -31,7 +31,7 @@ namespace EnergyTraderWPF
 
         private async Task LoadWeather(double lat, double lon)
         {
-            var weather = await WeatherInformationProcessor.LoadWeatherInformation(lat, lon);
+            var weather = await WeatherInformationProcessor.LoadWeatherInformation();
 
         }
     }

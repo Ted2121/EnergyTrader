@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EnergyTraderWPF.API;
+using EnergyTraderWPF.MVVM.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +24,9 @@ namespace EnergyTraderWPF.MVVM.View
     {
         public WindFarmView()
         {
+            WindFarm windFarm = new WindFarm("Nysted", 72, 2300);
             InitializeComponent();
+            WeatherInformationProcessor.LoadWeatherInformation();
         }
     }
 }
