@@ -1,5 +1,6 @@
 ﻿using EnergyTraderWPF.API;
 using EnergyTraderWPF.MVVM.Model;
+using EnergyTraderWPF.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,11 +30,6 @@ namespace EnergyTraderWPF.MVVM.View
             
         }
 
-        private async void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            await WeatherInformationProcessor.LoadWeatherInformation();
-
-
-        }
+     
     }
 }

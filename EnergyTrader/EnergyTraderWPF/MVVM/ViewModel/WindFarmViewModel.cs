@@ -12,8 +12,8 @@ namespace EnergyTraderWPF.MVVM.ViewModel
 {
     public class WindFarmViewModel : ObservableObject
     {
-        List<double> wind = new List<double>();
         
+
         WindFarm WindFarm { get; set; }
         
         private string _name;
@@ -62,35 +62,96 @@ namespace EnergyTraderWPF.MVVM.ViewModel
             }
         }
 
-        //private string _name;
+        private double _lat;
 
-        //public string Name
-        //{
-        //    get { return _name; }
-        //    set
-        //    {
-        //        _name = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
+        public double Lat
+        {
+            get { return _lat; }
+            set
+            {
+                _lat = value;
+                OnPropertyChanged();
+            }
+        }
 
-        //private string _name;
+        private double _lon;
 
-        //public string Name
-        //{
-        //    get { return _name; }
-        //    set
-        //    {
-        //        _name = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
+        public double Lon
+        {
+            get { return _lon; }
+            set
+            {
+                _lon = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _effectivePower;
+
+        public double EffectivePower
+        {
+            get { return _effectivePower; }
+            set
+            {
+                _effectivePower = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _expectedLoadRate;
+
+        public double ExpectedLoadRate
+        {
+            get { return _expectedLoadRate; }
+            set
+            {
+                _expectedLoadRate = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _expectedProduction;
+
+        public double ExpectedProduction
+        {
+            get { return _expectedProduction; }
+            set
+            {
+                _expectedProduction = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _wind;
+
+        public double Wind
+        {
+            get { return _wind; }
+            set
+            {
+                _wind = value;
+                OnPropertyChanged();
+            }
+        }
+
         public WindFarmViewModel()
         {
-            WindFarm = new WindFarm("Nysted", 72, 2300);
+            //GetWeatherInformationAsync().Wait();
+            WindFarm = new WindFarm("Nysted Wind Farm", 72, 2300, 54.55, 11.71);
+            Name = WindFarm.Name;
             NumberOfTurbines = WindFarm.NumberOfTurbines;
-           
+            TurbineCapacity = WindFarm.TurbineCapacity;
+            TotalNominalPower = WindFarm.CalculateTotalNominalPower();
+
 
         }
+
+        public async Task GetWeatherInformationAsync() 
+        {
+           
+            Root root = await WeatherInformationProcessor.LoadWeatherInformationAsync();
+            Wind = root.wind.speed;
+        }
+       
     }
 }

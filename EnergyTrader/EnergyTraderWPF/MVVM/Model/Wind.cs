@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace EnergyTraderWPF.MVVM.Model
 {
-    class Wind
+    public class Wind
     {
+        public double speed { get; set; }
     }
 }

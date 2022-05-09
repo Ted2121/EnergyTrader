@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnergyTraderWPF.API;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,37 +11,46 @@ namespace EnergyTraderWPF.MVVM.Model
 {
     public class WindFarm
     {
-        private WeatherInformation weatherInformation;
+        
         public string Name { get; set; }
         public int NumberOfTurbines { get; set; }
         public int TurbineCapacity { get; set; }
         public int TotalNominalPower { get; set; }
+        public double Lat { get; set; }
+        public double Lon { get; set; }
+
+        public double EffectivePower { get; set; }
         public double ExpectedLoadRate { get; set; }
         public double ExpectedProduction { get; set; }
-        public List<double> EffectivePowers { get; set; }
-        public List<double> ExpectedLoadRates { get; set; }
+       
+        //public List<double> EffectivePowers { get; set; }
+        //public List<double> ExpectedLoadRates { get; set; }
 
-        List<double> wind = new List<double> { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0,
+        List<double> windCurve = new List<double> { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0,
                                          11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0,
                                          20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0};
 
-        List<double> power = new List<double> { 0.0, 0.0, 0.0, 56.0, 148.0, 288.0, 476.0, 729.0, 1055.0,
+        List<double> powerCurve = new List<double> { 0.0, 0.0, 0.0, 56.0, 148.0, 288.0, 476.0, 729.0, 1055.0,
             1419.0, 1769.0, 2041.0, 2198.0, 2267.0, 2291.0, 2298.0, 2300.0, 2300.0, 2300.0, 2300.0, 2300.0,
                                            2300.0, 2300.0, 2300.0, 2300.0, 2300.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
+        public List<double> WindCurve { get;}
+        public List<double> PowerCurve { get; }
 
 
         public WindFarm(string name,
             int numberOfTurbines,
-            int turbineCapacity)
+            int turbineCapacity,
+            double lat,
+            double lon)
         {
-            weatherInformation = new WeatherInformation();
+            
             Name = name;
             NumberOfTurbines = numberOfTurbines;
             TurbineCapacity = turbineCapacity;
 
-
-            TotalNominalPower = CalculateTotalNominalPower();
+            Lat = lat;
+            Lon = lon;
             
         }
         public int CalculateTotalNominalPower()
@@ -49,7 +59,7 @@ namespace EnergyTraderWPF.MVVM.Model
         }
 
 
-        private double GetInterpolatedPower(double actualWindSpeed)
+        public double GetInterpolatedPower(double actualWindSpeed)
         {
             double leftWind;
             double rightWind;
@@ -59,15 +69,15 @@ namespace EnergyTraderWPF.MVVM.Model
 
             double effectivePower = 0.0;
 
-            for (int i = 0; i < wind.Count; i++)
+            for (int i = 0; i < windCurve.Count; i++)
             {
-                if (actualWindSpeed > wind[i] && actualWindSpeed < wind[i + 1])
+                if (actualWindSpeed > windCurve[i] && actualWindSpeed < windCurve[i + 1])
                 {
-                    leftWind = wind[i];
-                    leftPower = power[i];
+                    leftWind = windCurve[i];
+                    leftPower = powerCurve[i];
 
-                    rightWind = wind[i + 1];
-                    rightPower = power[i + 1];
+                    rightWind = windCurve[i + 1];
+                    rightPower = powerCurve[i + 1];
 
                     effectivePower = Interpolate(actualWindSpeed, leftWind, leftPower, rightWind, rightPower);
 
@@ -85,33 +95,34 @@ namespace EnergyTraderWPF.MVVM.Model
             effectivePower = leftPower + ((rightPower - leftPower) / (rightWind - leftWind)) * (actualWindSpeed - leftWind);
             return Math.Round(effectivePower, 2);
         }
-
-        public List<double> GetEffectivePowersList()
-        {
-            foreach (double windSpeed in weatherInformation.Wind_Speed)
-            {
-                EffectivePowers.Add(GetInterpolatedPower(windSpeed));
-            }
-
-            return EffectivePowers;
-
-        }
-
-        private double CalculateExpectedLoadRate(double actualWindSpeed)
+        public double CalculateExpectedLoadRate(double actualWindSpeed)
         {
             ExpectedLoadRate = (100 * GetInterpolatedPower(actualWindSpeed)) / TurbineCapacity;
             return ExpectedLoadRate;
         }
 
-        public List<double> GetExpectedLoadRates()
-        {
-            foreach (double windSpeed in weatherInformation.Wind_Speed)
-            {
-                ExpectedLoadRates.Add(CalculateExpectedLoadRate(windSpeed));
-            }
-            return ExpectedLoadRates;
+        // takes in weatherInformationResult from the web API
+        //public List<double> GetEffectivePowersList(List<WeatherInformation> weatherInformationResult)
+        //{
+        //    foreach (WeatherInformation weatherInfo in weatherInformationResult)
+        //    {
+        //        EffectivePowers.Add(GetInterpolatedPower(weatherInfo.Wind_Speed));
+        //    }
 
-        }
+        //    return EffectivePowers;
+
+        //}
+
+
+        //public List<double> GetExpectedLoadRates(List<WeatherInformation> weatherInformationResult)
+        //{
+        //    foreach (WeatherInformation weatherInfo in weatherInformationResult)
+        //    {
+        //        ExpectedLoadRates.Add(CalculateExpectedLoadRate(weatherInfo.Wind_Speed));
+        //    }
+        //    return ExpectedLoadRates;
+
+        //}
 
     }
 
