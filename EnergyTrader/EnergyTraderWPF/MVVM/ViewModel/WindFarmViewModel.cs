@@ -14,7 +14,7 @@ namespace EnergyTraderWPF.MVVM.ViewModel
     {
         
 
-        WindFarm WindFarm { get; set; }
+        WindFarmModel WindFarm { get; set; }
         
         private string _name;
 
@@ -98,6 +98,18 @@ namespace EnergyTraderWPF.MVVM.ViewModel
             }
         }
 
+        private double _totalEffectivePower;
+
+        public double TotalEffectivePower
+        {
+            get { return _totalEffectivePower; }
+            set
+            {
+                _totalEffectivePower = value;
+                OnPropertyChanged();
+            }
+        }
+
         private double _expectedLoadRate;
 
         public double ExpectedLoadRate
@@ -136,22 +148,28 @@ namespace EnergyTraderWPF.MVVM.ViewModel
 
         public WindFarmViewModel()
         {
-            //GetWeatherInformationAsync().Wait();
-            WindFarm = new WindFarm("Nysted Wind Farm", 72, 2300, 54.55, 11.71);
+           
+            WindFarm = new WindFarmModel("Nysted Wind Farm", 72, 2300, 54.55, 11.71);
             Name = WindFarm.Name;
             NumberOfTurbines = WindFarm.NumberOfTurbines;
             TurbineCapacity = WindFarm.TurbineCapacity;
             TotalNominalPower = WindFarm.CalculateTotalNominalPower();
+            Lat = WindFarm.Lat;
+            Lon = WindFarm.Lon;
 
-
-        }
-
-        public async Task GetWeatherInformationAsync() 
-        {
+            Wind = Math.Round(WeatherInformationProcessor.GetWindInformation(), 2);
            
-            Root root = await WeatherInformationProcessor.LoadWeatherInformationAsync();
-            Wind = root.wind.speed;
+            EffectivePower = Math.Round(WindFarm.GetInterpolatedPower(Wind), 2);
+            WindFarm.EffectivePower = EffectivePower;
+            TotalEffectivePower = Math.Round(WindFarm.CalculateTotalEffectivePower(), 2);
+            WindFarm.TotalEffectivePower = TotalEffectivePower;
+            ExpectedLoadRate = Math.Round(WindFarm.CalculateExpectedLoadRate(Wind), 2);
+            WindFarm.ExpectedLoadRate = ExpectedLoadRate;
+            ExpectedProduction = Math.Round(WindFarm.CalculateExpectedProduction(), 2);
+            WindFarm.ExpectedProduction = ExpectedProduction;
+
         }
+
        
     }
 }

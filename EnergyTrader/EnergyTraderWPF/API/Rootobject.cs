@@ -8,7 +8,7 @@ using RestSharp;
 using Newtonsoft;
 using Newtonsoft.Json;
 
-namespace TestingAPI
+namespace EnergyTraderWPF
 {
     public class Rootobject
     {

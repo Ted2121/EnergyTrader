@@ -95,6 +95,18 @@
                        Foreground="White"
                        FontSize="18"
                        />
+            <TextBlock Text="Effective Power"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="18"
+                       />
+            <TextBlock Text="Total Effective Power"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="18"
+                       />
             <TextBlock Text="Expected Production"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
@@ -114,21 +126,21 @@
                    FontSize="18"
                    />
             <TextBlock 
-                   Text="N/A"
+                   Text="{Binding NumberOfTurbines}"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
                    Foreground="White"
                    FontSize="18"
                    />
 
-            <TextBlock Text="N/A"
+            <TextBlock Text="{Binding TurbineCapacity}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
                        />
 
-            <TextBlock Text="N/A"
+            <TextBlock Text="{Binding TotalNominalPower}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
@@ -141,14 +153,14 @@
         <StackPanel Grid.Row="2"
                     Grid.Column="1"
                     Margin="10, 20, 10, 0">
-            <TextBlock Text="N/A"
+            <TextBlock Text="{Binding Lat}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
                        />
             
-            <TextBlock Text="N/A"
+            <TextBlock Text="{Binding Lon}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
@@ -158,19 +170,31 @@
         <StackPanel Grid.Row="3"
                     Grid.Column="1"
                     Margin="10, 20, 10, 0">
-            <TextBlock Text="N/A"
+            <TextBlock Text="{Binding Wind}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
                        />
-            <TextBlock Text="N/A"
+            <TextBlock Text="{Binding ExpectedLoadRate}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
                        />
-            <TextBlock Text="N/A"
+            <TextBlock Text="{Binding EffectivePower}"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="18"
+                       />
+            <TextBlock Text="{Binding TotalEffectivePower}"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="18"
+                       />
+            <TextBlock Text="{Binding ExpectedProduction}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
@@ -178,24 +202,7 @@
                        />
         </StackPanel>
 
-        <StackPanel Grid.Row="1"
-                    Grid.Column="3">
-            <ListBox Name="lbTodoList" HorizontalContentAlignment="Stretch">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Margin="0,2">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="100" />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding Title}" />
-                            
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-
-        </StackPanel>
+       
 
     </Grid>
 

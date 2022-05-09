@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EnergyTraderWPF.MVVM.Model
 {
-    public class WindFarm
+    public class WindFarmModel
     {
         
         public string Name { get; set; }
@@ -20,6 +20,7 @@ namespace EnergyTraderWPF.MVVM.Model
         public double Lon { get; set; }
 
         public double EffectivePower { get; set; }
+        public double TotalEffectivePower { get; set; }
         public double ExpectedLoadRate { get; set; }
         public double ExpectedProduction { get; set; }
        
@@ -38,7 +39,7 @@ namespace EnergyTraderWPF.MVVM.Model
         public List<double> PowerCurve { get; }
 
 
-        public WindFarm(string name,
+        public WindFarmModel(string name,
             int numberOfTurbines,
             int turbineCapacity,
             double lat,
@@ -51,6 +52,8 @@ namespace EnergyTraderWPF.MVVM.Model
 
             Lat = lat;
             Lon = lon;
+
+            
             
         }
         public int CalculateTotalNominalPower()
@@ -58,6 +61,15 @@ namespace EnergyTraderWPF.MVVM.Model
             return TurbineCapacity * NumberOfTurbines;
         }
 
+        public double CalculateTotalEffectivePower()
+        {
+            return EffectivePower * NumberOfTurbines;
+        }
+
+        public double CalculateExpectedProduction()
+        {
+            return TotalEffectivePower * 24;
+        }
 
         public double GetInterpolatedPower(double actualWindSpeed)
         {

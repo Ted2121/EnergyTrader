@@ -26,14 +26,14 @@ namespace EnergyTraderWPF
         public MainWindow()
         {
             InitializeComponent();
-            ApiHelper.InitializeClient();
+            //ApiHelper.InitializeClient();
             
         }
 
-        private async void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            Root root = await WeatherInformationProcessor.LoadWeatherInformationAsync();
-            WindFarmViewModel.Wind = root.wind.speed;
-        }
+        //private async void Window_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    Root root = await WeatherInformationProcessor.LoadWeatherInformationAsync();
+        //    WindFarmViewModel.Wind = root.wind.speed;
+        //}
     }
 }
