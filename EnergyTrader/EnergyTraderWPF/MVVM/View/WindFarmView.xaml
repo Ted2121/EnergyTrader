@@ -14,7 +14,7 @@
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="210"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="230"/>
             <ColumnDefinition Width="400"/>
 
         </Grid.ColumnDefinitions>
@@ -133,14 +133,14 @@
                    FontSize="18"
                    />
 
-            <TextBlock Text="{Binding TurbineCapacity}"
+            <TextBlock Text="{Binding TurbineCapacity, StringFormat='{}{0:#,##0} kW'}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
                        />
 
-            <TextBlock Text="{Binding TotalNominalPower}"
+            <TextBlock Text="{Binding TotalNominalPower, StringFormat='{}{0:#,##0} kW'}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
@@ -153,14 +153,14 @@
         <StackPanel Grid.Row="2"
                     Grid.Column="1"
                     Margin="10, 20, 10, 0">
-            <TextBlock Text="{Binding Lat}"
+            <TextBlock Text="{Binding Lat, StringFormat='{}{0:#,##0.00} N'}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
                        />
-            
-            <TextBlock Text="{Binding Lon}"
+
+            <TextBlock Text="{Binding Lon, StringFormat='{}{0:#,##0.00} E'}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
@@ -170,31 +170,31 @@
         <StackPanel Grid.Row="3"
                     Grid.Column="1"
                     Margin="10, 20, 10, 0">
-            <TextBlock Text="{Binding Wind}"
+            <TextBlock Text="{Binding Wind, StringFormat='{}{0:#,##0.00} m/s'}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
                        />
-            <TextBlock Text="{Binding ExpectedLoadRate}"
+            <TextBlock Text="{Binding ExpectedLoadRate, StringFormat='{}{0:#,##0.00} %'}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
                        />
-            <TextBlock Text="{Binding EffectivePower}"
+            <TextBlock Text="{Binding EffectivePower, StringFormat='{}{0:#,##0.00} kW (per turbine)'}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
                        />
-            <TextBlock Text="{Binding TotalEffectivePower}"
+            <TextBlock Text="{Binding TotalEffectivePower, StringFormat='{}{0:#,##0.00} kW'}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
                        />
-            <TextBlock Text="{Binding ExpectedProduction}"
+            <TextBlock Text="{Binding ExpectedProduction, StringFormat='{}{0:#,##0.00} kWh'}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
