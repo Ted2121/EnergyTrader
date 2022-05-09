@@ -13,20 +13,26 @@ namespace EnergyTraderWPF.MVVM.Model
         public double Lat { get; set; }
         public double Lon { get; set; }
         public double AreaSize { get; set; }
-        public int OutputDuration { get; set; }
-        public int TotalCapacity { get; set; }
+        public TimeSpan OutputDuration { get; set; }
+        public int TotalNominalPower { get; set; }
         public double ExpectedProduction { get; set; }
-        public SolarParkModel(string name, double lat, double lon, double areaSize, int totalCapacity)
+        public SolarParkModel(string name, double lat, double lon, double areaSize, int totalNominalPower)
         {
             Name = name;
             Lat = lat;
             Lon = lon;
             AreaSize = areaSize;
-            TotalCapacity = totalCapacity;
+            TotalNominalPower = totalNominalPower;
 
         }
 
-        public int CalculateOutputDuration(int sunrise, int sunset)
+        public TimeSpan CalculateOutputDuration(DateTime sunrise, DateTime sunset)
+        {
+            // we calculate the difference between sunset and sunrise and return it as a TimeSpan object
+            return sunset.Subtract(sunrise);
+        }
+
+        public int CalculateOutputDurationInSeconds(int sunrise, int sunset)
         {
             // we calculate the difference between sunset and sunrise in seconds
             return sunset - sunrise;
@@ -36,8 +42,8 @@ namespace EnergyTraderWPF.MVVM.Model
         {
             // we multiply the total capacity of the solar panels
             // with the output duration (transformed from seconds to hours) and
-            // with an efficiency loss coeficient
-            return TotalCapacity * (outputDuration / 3600) * 0.75;
+            // with an average efficiency of conversion
+            return TotalNominalPower * (outputDuration / 3600) * 0.22;
         }
     }
 }

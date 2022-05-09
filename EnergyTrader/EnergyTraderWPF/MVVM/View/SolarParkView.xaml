@@ -36,21 +36,15 @@
         <StackPanel Grid.Row="1"
                     Margin="20, 20, 10, 0">
             <TextBlock 
-                   Text="Wind Farm Name"
+                   Text="Solar Park Name"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
                    Foreground="White"
                    FontSize="18"
                    />
-            <TextBlock 
-                   Text="No. of Turbines"
-                   VerticalAlignment="Top"
-                   HorizontalAlignment="Left"
-                   Foreground="White"
-                   FontSize="18"
-                   />
+          
 
-            <TextBlock Text="Turbine Capacity"
+            <TextBlock Text="Area Size"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
@@ -84,30 +78,25 @@
         </StackPanel>
         <StackPanel Grid.Row="3"
                     Margin="20, 20, 10, 0">
-            <TextBlock Text="Wind Speed"
+            <TextBlock Text="Sunrise"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
                        />
-            <TextBlock Text="Expected Load Rate"
+            <TextBlock Text="Sunset"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
                        />
-            <TextBlock Text="Effective Power"
+            <TextBlock Text="Output Duration"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
                        />
-            <TextBlock Text="Total Effective Power"
-                       VerticalAlignment="Top"
-                       HorizontalAlignment="Left"
-                       Foreground="White"
-                       FontSize="18"
-                       />
+           
             <TextBlock Text="Expected Production"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
@@ -127,19 +116,12 @@
                    FontSize="18"
                    />
             <TextBlock 
-                   Text="{Binding NumberOfTurbines}"
+                   Text="{Binding AreaSize}"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
                    Foreground="White"
                    FontSize="18"
                    />
-
-            <TextBlock Text="{Binding TurbineCapacity, StringFormat='{}{0:#,##0} kW'}"
-                       VerticalAlignment="Top"
-                       HorizontalAlignment="Left"
-                       Foreground="White"
-                       FontSize="18"
-                       />
 
             <TextBlock Text="{Binding TotalNominalPower, StringFormat='{}{0:#,##0} kW'}"
                        VerticalAlignment="Top"
@@ -147,6 +129,8 @@
                        Foreground="White"
                        FontSize="18"
                        />
+
+           
 
 
         </StackPanel>
@@ -171,25 +155,19 @@
         <StackPanel Grid.Row="3"
                     Grid.Column="1"
                     Margin="10, 20, 10, 0">
-            <TextBlock Text="{Binding Wind, StringFormat='{}{0:#,##0.00} m/s'}"
+            <TextBlock Text="{Binding Sunrise}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
                        />
-            <TextBlock Text="{Binding ExpectedLoadRate, StringFormat='{}{0:#,##0.00} %'}"
+            <TextBlock Text="{Binding Sunset}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
                        />
-            <TextBlock Text="{Binding EffectivePower, StringFormat='{}{0:#,##0.00} kW (per turbine)'}"
-                       VerticalAlignment="Top"
-                       HorizontalAlignment="Left"
-                       Foreground="White"
-                       FontSize="18"
-                       />
-            <TextBlock Text="{Binding TotalEffectivePower, StringFormat='{}{0:#,##0.00} kW'}"
+            <TextBlock Text="{Binding OutputDuration}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Foreground="White"
@@ -201,6 +179,7 @@
                        Foreground="White"
                        FontSize="18"
                        />
+          
         </StackPanel>
 
 

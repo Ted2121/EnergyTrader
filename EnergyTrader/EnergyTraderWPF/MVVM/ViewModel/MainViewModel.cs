@@ -11,10 +11,11 @@ namespace EnergyTraderWPF.MVVM.ViewModel
     {
         public RelayCommand DashBoardViewCommand { get; set; }
         public RelayCommand WindFarmViewCommand { get; set; }
-        //public RelayCommand SolarParkViewCommand { get; set; }
+        public RelayCommand SolarParkViewCommand { get; set; }
         public DashboardViewModel DashboardVM { get; set; }
         public WindFarmViewModel WindFarmVM { get; set; }
-        
+        public SolarParkViewModel SolarParkVM { get; set; }
+
         private object _currentView;
 
         public object CurrentView
@@ -29,6 +30,7 @@ namespace EnergyTraderWPF.MVVM.ViewModel
         {
             DashboardVM = new DashboardViewModel();
             WindFarmVM = new WindFarmViewModel();
+            SolarParkVM = new SolarParkViewModel();
             CurrentView = DashboardVM;
 
             DashBoardViewCommand = new RelayCommand(o => 
@@ -41,10 +43,10 @@ namespace EnergyTraderWPF.MVVM.ViewModel
                 CurrentView = WindFarmVM;
             });
 
-            //SolarParkViewCommand = new RelayCommand(o =>
-            //{
-            //    CurrentView = SolarParkVM;
-            //});
+            SolarParkViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = SolarParkVM;
+            });
 
         }
     }

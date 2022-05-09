@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EnergyTraderWPF.MVVM.ViewModel
 {
-    class SolarParkViewModel : ObservableObject
+    public class SolarParkViewModel : ObservableObject
     {
 
         SolarParkModel SolarPark { get; set; }
@@ -62,9 +62,9 @@ namespace EnergyTraderWPF.MVVM.ViewModel
             }
         }
 
-        private int _outputDuration;
+        private TimeSpan _outputDuration;
 
-        public int OutputDuration
+        public TimeSpan OutputDuration
         {
             get { return _outputDuration; }
             set
@@ -74,14 +74,14 @@ namespace EnergyTraderWPF.MVVM.ViewModel
             }
         }
 
-        private int _totalCapacity;
+        private int _totalNominalPower;
 
-        public int TotalCapacity
+        public int TotalNominalPower
         {
-            get { return _totalCapacity; }
+            get { return _totalNominalPower; }
             set
             {
-                _totalCapacity = value;
+                _totalNominalPower = value;
                 OnPropertyChanged();
             }
         }
@@ -126,7 +126,7 @@ namespace EnergyTraderWPF.MVVM.ViewModel
 
         public SolarParkViewModel()
         {
-            SolarPark = new SolarParkModel("Holstebro Solar Park", 56.38, 8.49, 222.0, 207);
+            SolarPark = new SolarParkModel("Holstebro Solar Park", 56.38, 8.49, 222.0, 207000);
             int sunriseInSeconds = WeatherInformationProcessor.
                 GetSunInformation().Item1;
             int sunsetInSeconds = WeatherInformationProcessor.
@@ -135,11 +135,12 @@ namespace EnergyTraderWPF.MVVM.ViewModel
             Lat = SolarPark.Lat;
             Lon = SolarPark.Lon;
             AreaSize = SolarPark.AreaSize;
-            OutputDuration = SolarPark.CalculateOutputDuration(sunriseInSeconds, sunsetInSeconds);
+            OutputDuration = SolarPark.CalculateOutputDuration(Sunrise, Sunset);
             SolarPark.OutputDuration = OutputDuration;
-            TotalCapacity = SolarPark.TotalCapacity;
-            ExpectedProduction = Math.Round(SolarPark.CalculateExpectedProduction(OutputDuration), 2);
-
+            TotalNominalPower = SolarPark.TotalNominalPower;
+            ExpectedProduction = Math.Round(SolarPark.CalculateExpectedProduction(SolarPark.
+                CalculateOutputDurationInSeconds(sunriseInSeconds, sunsetInSeconds)), 2);
+            SolarPark.ExpectedProduction = ExpectedProduction;
             
             Sunrise = WeatherInformationProcessor.
                 convertSecondsToDateTime(sunriseInSeconds);
