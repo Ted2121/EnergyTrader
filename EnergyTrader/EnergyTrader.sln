@@ -5,8 +5,6 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnergyTraderWPF", "EnergyTraderWPF\EnergyTraderWPF.csproj", "{1439D871-E9DB-4773-B884-3B11E9AC6C77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingAPI", "TestingAPI\TestingAPI.csproj", "{EF1C5B7E-36C6-45F9-B296-1D337CAE727C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{1439D871-E9DB-4773-B884-3B11E9AC6C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1439D871-E9DB-4773-B884-3B11E9AC6C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1439D871-E9DB-4773-B884-3B11E9AC6C77}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EF1C5B7E-36C6-45F9-B296-1D337CAE727C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF1C5B7E-36C6-45F9-B296-1D337CAE727C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF1C5B7E-36C6-45F9-B296-1D337CAE727C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF1C5B7E-36C6-45F9-B296-1D337CAE727C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
