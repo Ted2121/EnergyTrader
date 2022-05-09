@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EnergyTraderWPF.API;
-
+using EnergyTraderWPF.MVVM.ViewModel;
 
 namespace EnergyTraderWPF
 {
@@ -30,6 +30,10 @@ namespace EnergyTraderWPF
             
         }
 
-      
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Root root = await WeatherInformationProcessor.LoadWeatherInformationAsync();
+            WindFarmViewModel.Wind = root.wind.speed;
+        }
     }
 }
