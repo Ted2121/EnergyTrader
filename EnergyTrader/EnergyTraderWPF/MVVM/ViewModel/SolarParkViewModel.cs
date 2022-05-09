@@ -1,4 +1,5 @@
-﻿using EnergyTraderWPF.Core;
+﻿using EnergyTraderWPF.API;
+using EnergyTraderWPF.Core;
 using EnergyTraderWPF.MVVM.Model;
 using System;
 using System.Collections.Generic;
@@ -49,9 +50,9 @@ namespace EnergyTraderWPF.MVVM.ViewModel
             }
         }
 
-        private string _areaSize;
+        private double _areaSize;
 
-        public string AreaSize
+        public double AreaSize
         {
             get { return _areaSize; }
             set
@@ -85,9 +86,9 @@ namespace EnergyTraderWPF.MVVM.ViewModel
             }
         }
 
-        private int _expectedProduction;
+        private double _expectedProduction;
 
-        public int ExpectedProduction
+        public double ExpectedProduction
         {
             get { return _expectedProduction; }
             set
@@ -125,8 +126,31 @@ namespace EnergyTraderWPF.MVVM.ViewModel
 
         public SolarParkViewModel()
         {
+            SolarPark = new SolarParkModel("Holstebro Solar Park", 56.38, 8.49, 222.0, 207);
+            int sunriseInSeconds = WeatherInformationProcessor.
+                GetSunInformation().Item1;
+            int sunsetInSeconds = WeatherInformationProcessor.
+                GetSunInformation().Item2;  
+            Name = SolarPark.Name;
+            Lat = SolarPark.Lat;
+            Lon = SolarPark.Lon;
+            AreaSize = SolarPark.AreaSize;
+            OutputDuration = SolarPark.CalculateOutputDuration(sunriseInSeconds, sunsetInSeconds);
+            SolarPark.OutputDuration = OutputDuration;
+            TotalCapacity = SolarPark.TotalCapacity;
+            ExpectedProduction = Math.Round(SolarPark.CalculateExpectedProduction(OutputDuration), 2);
+
+            
+            Sunrise = WeatherInformationProcessor.
+                convertSecondsToDateTime(sunriseInSeconds);
+
+            Sunset = WeatherInformationProcessor.
+                convertSecondsToDateTime(sunsetInSeconds);
+
 
         }
+
+
 
 
     }

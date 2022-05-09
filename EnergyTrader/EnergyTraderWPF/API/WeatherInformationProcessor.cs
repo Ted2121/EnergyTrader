@@ -30,7 +30,7 @@ namespace EnergyTraderWPF.API
             return jsonString.wind.speed;
         }
 
-        public (int, int) GetSunInformation()
+        public static (int, int) GetSunInformation()
         {
             Rootobject root = new Rootobject();
             string url = "https://api.openweathermap.org/data/2.5/weather?lat=56.38&lon=8.49&appid=75b38672184fbcb994200c92948dacd6";
@@ -45,7 +45,7 @@ namespace EnergyTraderWPF.API
         }
 
 
-        public DateTime convertSecondsToDateTime(int sec)
+        public static DateTime convertSecondsToDateTime(int sec)
         {
             DateTime day = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc).ToLocalTime();
             day = day.AddSeconds(sec).ToLocalTime();
