@@ -21,7 +21,7 @@ namespace EnergyTraderWPF.API
             ApiClient = new HttpClient();
             // base address
             // continue with weather?lat&lon&appid
-            ApiClient.BaseAddress = new Uri("https://api.openweathermap.org/data/2.5/");
+            
             ApiClient.DefaultRequestHeaders.Accept.Clear();
             ApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

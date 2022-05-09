@@ -72,8 +72,7 @@
                              Height="50"
                              Foreground="White"
                              FontSize="18"
-                             Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding SolarParkViewCommand}">
+                             Style="{StaticResource MenuButtonTheme}">
 
 
                 </RadioButton>
