@@ -126,11 +126,16 @@ namespace EnergyTraderWPF.MVVM.ViewModel
 
         public SolarParkViewModel()
         {
-            SolarPark = new SolarParkModel("Holstebro Solar Park", 56.38, 8.49, 222.0, 207000);
             int sunriseInSeconds = WeatherInformationProcessor.
                 GetSunInformation().Item1;
             int sunsetInSeconds = WeatherInformationProcessor.
                 GetSunInformation().Item2;  
+            Sunrise = WeatherInformationProcessor.
+                convertSecondsToDateTime(sunriseInSeconds);
+
+            Sunset = WeatherInformationProcessor.
+                convertSecondsToDateTime(sunsetInSeconds);
+            SolarPark = new SolarParkModel("Holstebro Solar Park", 56.38, 8.49, 222.0, 207000);
             Name = SolarPark.Name;
             Lat = SolarPark.Lat;
             Lon = SolarPark.Lon;
@@ -142,11 +147,6 @@ namespace EnergyTraderWPF.MVVM.ViewModel
                 CalculateOutputDurationInSeconds(sunriseInSeconds, sunsetInSeconds)), 2);
             SolarPark.ExpectedProduction = ExpectedProduction;
             
-            Sunrise = WeatherInformationProcessor.
-                convertSecondsToDateTime(sunriseInSeconds);
-
-            Sunset = WeatherInformationProcessor.
-                convertSecondsToDateTime(sunsetInSeconds);
 
 
         }

@@ -27,7 +27,7 @@
             <RowDefinition x:Name="row4" Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Wind Farm Output"
+        <TextBlock Text="Solar Park Output"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Foreground="White"
