@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="EnergyTraderWPF.Rootobject" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAABAAAYAAABBEAAAAAAQIAABABgQ=</HashCode>
+      <FileName>API\Rootobject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnergyTraderWPF.Wind" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAhAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>API\Rootobject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnergyTraderWPF.Sys" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAQCAAAAAAAAAkA=</HashCode>
+      <FileName>API\Rootobject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnergyTraderWPF.API.WeatherInformationProcessor" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAE=</HashCode>
+      <FileName>API\WeatherInformationProcessor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnergyTraderWPF.Core.ObservableObject" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\ObservableObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EnergyTraderWPF.Core.RelayCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EnergyTraderWPF.MVVM.Model.SolarParkModel" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAGAQCIAAAAAAAAwAAAgAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>MVVM\Model\SolarParkModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnergyTraderWPF.MVVM.Model.WindFarmModel" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABCAACYQBAAABBAQAEAhCAAAAKgAAAAAQABA=</HashCode>
+      <FileName>MVVM\Model\WindFarmModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnergyTraderWPF.MVVM.ViewModel.DashboardViewModel" Collapsed="true">
+    <Position X="2.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MVVM\ViewModel\DashboardViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnergyTraderWPF.MVVM.ViewModel.MainViewModel">
+    <Position X="0.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAACAAAAAAAAAAEAIAoAAAAAAAAgAAAACAAAAAA=</HashCode>
+      <FileName>MVVM\ViewModel\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnergyTraderWPF.MVVM.ViewModel.SolarParkViewModel" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBQAYAAAAGAQiICAIAAAAAQAAAgAAAIAAAEEAAAAAAQ=</HashCode>
+      <FileName>MVVM\ViewModel\SolarParkViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnergyTraderWPF.MVVM.ViewModel.WindFarmViewModel" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAIAAAACIACICAIAEBBAQAEAhAAAAFAAAEIAQAABQ=</HashCode>
+      <FileName>MVVM\ViewModel\WindFarmViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

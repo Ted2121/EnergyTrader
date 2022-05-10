@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 using EnergyTraderWPF.MVVM.Model;
 using Newtonsoft.Json;
 using RestSharp;
+using System.Net;
 
 namespace EnergyTraderWPF.API
 {
     public class WeatherInformationProcessor
     {
-
-  
 
         public static double GetWindInformation()
         {
@@ -24,24 +23,26 @@ namespace EnergyTraderWPF.API
             var client = new RestClient(url);
             var request = new RestRequest();
             var response = client.GetAsync(request).Result;
-            //Console.WriteLine(response.Content.ToString());
+            
 
             Rootobject jsonString = JsonConvert.DeserializeObject<Rootobject>(response.Content);
             return jsonString.wind.speed;
         }
 
-        public static (int, int) GetSunInformation()
+        public static async Task<Rootobject> GetSunInformationAsync()
         {
             Rootobject root = new Rootobject();
             string url = "https://api.openweathermap.org/data/2.5/weather?lat=56.38&lon=8.49&appid=75b38672184fbcb994200c92948dacd6";
 
             var client = new RestClient(url);
             var request = new RestRequest();
-            var response = client.GetAsync(request).Result;
-            //Console.WriteLine(response.Content.ToString());
+            var response = await client.GetAsync(request);
 
-            Rootobject jsonString = JsonConvert.DeserializeObject<Rootobject>(response.Content);
-            return (jsonString.sys.sunrise, jsonString.sys.sunset);
+            if (!response.IsSuccessful)
+            {
+                throw new Exception($"Error getting response. Message was {response.Content}");
+            }
+            return response.Data;
         }
 
 
