@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WeatherApi
 {
-    public class WeatherInformationClient
+    public class WeatherInformationWebService
     {
         public static double GetWindInformation()
         {

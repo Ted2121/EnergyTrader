@@ -28,9 +28,9 @@ namespace EnergyTraderWPF.MVVM.ViewModel
 
         public MainViewModel()
         {
-            DashboardVM = new DashboardViewModel();
-            WindFarmVM = new WindFarmViewModel();
-            SolarParkVM = new SolarParkViewModel();
+            DashboardVM = ViewModelFactory.GetDashboardViewModel();
+            WindFarmVM = ViewModelFactory.GetWindFarmViewModel();
+            SolarParkVM = ViewModelFactory.GetSolarParkViewModel();
             CurrentView = DashboardVM;
 
             DashBoardViewCommand = new RelayCommand(o => 

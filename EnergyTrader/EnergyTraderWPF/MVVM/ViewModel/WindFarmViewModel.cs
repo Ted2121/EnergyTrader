@@ -14,7 +14,7 @@ namespace EnergyTraderWPF.MVVM.ViewModel
     {
         
 
-        WindFarmModel WindFarm { get; set; }
+        public WindFarmModel WindFarm { get; set; }
         
         private string _name;
 
@@ -148,8 +148,9 @@ namespace EnergyTraderWPF.MVVM.ViewModel
 
         public WindFarmViewModel()
         {
-           
-            WindFarm = new WindFarmModel("Nysted Wind Farm", 72, 2300, 54.55, 11.71);
+
+            //windFarm = new WindFarmModel("Nysted Wind Farm", 72, 2300, 54.55, 11.71);
+            WindFarm = ViewModelFactory.GetWindFarmModel();
             Name = WindFarm.Name;
             NumberOfTurbines = WindFarm.NumberOfTurbines;
             TurbineCapacity = WindFarm.TurbineCapacity;
@@ -157,8 +158,6 @@ namespace EnergyTraderWPF.MVVM.ViewModel
             Lat = WindFarm.Lat;
             Lon = WindFarm.Lon;
 
-            Wind = Math.Round(WeatherInformationClient.GetWindInformation(), 2);
-           
             EffectivePower = Math.Round(WindFarm.GetInterpolatedPower(Wind), 2);
             WindFarm.EffectivePower = EffectivePower;
             TotalEffectivePower = Math.Round(WindFarm.CalculateTotalEffectivePower(), 2);
@@ -170,6 +169,6 @@ namespace EnergyTraderWPF.MVVM.ViewModel
 
         }
 
-       
+
     }
 }
