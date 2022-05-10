@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnergyTraderWPF.MVVM.ViewModel
 {
-    internal class ViewModelFactory
+    public class ViewModelFactory
     {
     }
 }
