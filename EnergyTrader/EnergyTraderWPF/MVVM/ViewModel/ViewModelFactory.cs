@@ -25,14 +25,9 @@ namespace EnergyTraderWPF.MVVM.ViewModel
 
         public static WindFarmViewModel GetWindFarmViewModel()
         {
-            //WindFarmModel = GetWindFarmModel();
-
-            // calling the API here to get wind information
-            double wind = Math.Round(WeatherInformationWebService.GetWindInformation(), 2);
-          
+            
             WindFarmViewModel windFarmViewModel = new WindFarmViewModel();
-            windFarmViewModel.Wind = wind;
-            windFarmViewModel.WindFarm = WindFarmModel;
+            
             return windFarmViewModel;
         }
 
@@ -49,6 +44,11 @@ namespace EnergyTraderWPF.MVVM.ViewModel
             WindFarmModel = new WindFarmModel("Nysted Wind Farm", 72, 2300, 54.55, 11.71);
 
             return WindFarmModel;
+        }
+
+        public static double GetWindSpeedFromApi()
+        {
+            return Math.Round(WeatherInformationWebService.GetWindInformation(), 2);
         }
         
     }

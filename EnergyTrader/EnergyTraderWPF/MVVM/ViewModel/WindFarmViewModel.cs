@@ -149,15 +149,15 @@ namespace EnergyTraderWPF.MVVM.ViewModel
         public WindFarmViewModel()
         {
 
-            //windFarm = new WindFarmModel("Nysted Wind Farm", 72, 2300, 54.55, 11.71);
             WindFarm = ViewModelFactory.GetWindFarmModel();
+            Wind = ViewModelFactory.GetWindSpeedFromApi();
+
             Name = WindFarm.Name;
             NumberOfTurbines = WindFarm.NumberOfTurbines;
             TurbineCapacity = WindFarm.TurbineCapacity;
             TotalNominalPower = WindFarm.CalculateTotalNominalPower();
             Lat = WindFarm.Lat;
             Lon = WindFarm.Lon;
-
             EffectivePower = Math.Round(WindFarm.GetInterpolatedPower(Wind), 2);
             WindFarm.EffectivePower = EffectivePower;
             TotalEffectivePower = Math.Round(WindFarm.CalculateTotalEffectivePower(), 2);
