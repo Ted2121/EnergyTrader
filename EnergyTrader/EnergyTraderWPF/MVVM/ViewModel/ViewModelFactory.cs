@@ -14,7 +14,7 @@ namespace EnergyTraderWPF.MVVM.ViewModel
         private ViewModelFactory() { }
 
         public static WindFarmModel WindFarmModel { get; set; }
-        public static SolarParkModel SolarParkModel { get; set; } = new SolarParkModel("Holstebro Solar Park", 56.38, 8.49, 222.0, 207000);
+        public static SolarParkModel SolarParkModel { get; set; }
         public double Wind { get; set; }
         public static DashboardViewModel GetDashboardViewModel()
         {
@@ -46,10 +46,30 @@ namespace EnergyTraderWPF.MVVM.ViewModel
             return WindFarmModel;
         }
 
+        public static SolarParkModel GetSolarParkModel()
+        {
+            SolarParkModel = new SolarParkModel("Holstebro Solar Park", 56.38, 8.49, 222.0, 207000);
+
+            return SolarParkModel;
+        }
+
         public static double GetWindSpeedFromApi()
         {
             return Math.Round(WeatherInformationWebService.GetWindInformation(), 2);
         }
-        
+
+        public static (int, int) GetSunriseAndSunsetFromApi()
+        {
+            return WeatherInformationWebService.GetSunInformation();
+        }
+
+        public static DateTime convertSecondsToDateTime(int sec)
+        {
+            DateTime day = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc).ToLocalTime();
+            day = day.AddSeconds(sec).ToLocalTime();
+
+            return day;
+        }
+
     }
 }

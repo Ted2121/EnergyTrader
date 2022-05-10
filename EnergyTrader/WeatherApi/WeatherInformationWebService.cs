@@ -39,12 +39,6 @@ namespace WeatherApi
         }
 
 
-        public static DateTime convertSecondsToDateTime(int sec)
-        {
-            DateTime day = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc).ToLocalTime();
-            day = day.AddSeconds(sec).ToLocalTime();
-
-            return day;
-        }
+        
     }
 }

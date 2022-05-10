@@ -126,16 +126,16 @@ namespace EnergyTraderWPF.MVVM.ViewModel
 
         public SolarParkViewModel()
         {
-
-            var sunInformation = WeatherInformationWebService.GetSunInformation();
+            SolarPark = ViewModelFactory.GetSolarParkModel();
+            var sunInformation = ViewModelFactory.GetSunriseAndSunsetFromApi();
             int sunriseInSeconds = sunInformation.Item1;
             int sunsetInSeconds = sunInformation.Item2;  
-            Sunrise = WeatherInformationWebService.
+            Sunrise = ViewModelFactory.
                 convertSecondsToDateTime(sunriseInSeconds);
 
-            Sunset = WeatherInformationWebService.
+            Sunset = ViewModelFactory.
                 convertSecondsToDateTime(sunsetInSeconds);
-            SolarPark = new SolarParkModel("Holstebro Solar Park", 56.38, 8.49, 222.0, 207000);
+           
             Name = SolarPark.Name;
             Lat = SolarPark.Lat;
             Lon = SolarPark.Lon;
