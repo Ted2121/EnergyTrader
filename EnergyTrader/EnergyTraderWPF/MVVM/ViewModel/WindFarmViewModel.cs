@@ -1,5 +1,4 @@
-﻿using EnergyTraderWPF.API;
-using EnergyTraderWPF.Core;
+﻿using EnergyTraderWPF.Core;
 using EnergyTraderWPF.MVVM.Model;
 using System;
 using System.Collections.Generic;
@@ -7,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeatherApi;
 
 namespace EnergyTraderWPF.MVVM.ViewModel
 {
@@ -157,7 +157,7 @@ namespace EnergyTraderWPF.MVVM.ViewModel
             Lat = WindFarm.Lat;
             Lon = WindFarm.Lon;
 
-            Wind = Math.Round(WeatherInformationProcessor.GetWindInformation(), 2);
+            Wind = Math.Round(WeatherInformationClient.GetWindInformation(), 2);
            
             EffectivePower = Math.Round(WindFarm.GetInterpolatedPower(Wind), 2);
             WindFarm.EffectivePower = EffectivePower;

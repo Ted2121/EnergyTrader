@@ -1,21 +1,15 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using EnergyTraderWPF.MVVM.Model;
-using Newtonsoft.Json;
-using RestSharp;
 
-namespace EnergyTraderWPF.API
+namespace WeatherApi
 {
-    public class WeatherInformationProcessor
+    public class WeatherInformationClient
     {
-
-  
-
         public static double GetWindInformation()
         {
             Rootobject root = new Rootobject();
@@ -52,7 +46,5 @@ namespace EnergyTraderWPF.API
 
             return day;
         }
-
-
     }
 }

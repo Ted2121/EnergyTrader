@@ -1,5 +1,4 @@
-﻿using EnergyTraderWPF.API;
-using EnergyTraderWPF.MVVM.Model;
+﻿using EnergyTraderWPF.MVVM.Model;
 using EnergyTraderWPF.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;

@@ -1,11 +1,11 @@
-﻿using EnergyTraderWPF.API;
-using EnergyTraderWPF.Core;
+﻿using EnergyTraderWPF.Core;
 using EnergyTraderWPF.MVVM.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeatherApi;
 
 namespace EnergyTraderWPF.MVVM.ViewModel
 {
@@ -126,14 +126,14 @@ namespace EnergyTraderWPF.MVVM.ViewModel
 
         public SolarParkViewModel()
         {
-            int sunriseInSeconds = WeatherInformationProcessor.
+            int sunriseInSeconds = WeatherInformationClient.
                 GetSunInformation().Item1;
-            int sunsetInSeconds = WeatherInformationProcessor.
+            int sunsetInSeconds = WeatherInformationClient.
                 GetSunInformation().Item2;  
-            Sunrise = WeatherInformationProcessor.
+            Sunrise = WeatherInformationClient.
                 convertSecondsToDateTime(sunriseInSeconds);
 
-            Sunset = WeatherInformationProcessor.
+            Sunset = WeatherInformationClient.
                 convertSecondsToDateTime(sunsetInSeconds);
             SolarPark = new SolarParkModel("Holstebro Solar Park", 56.38, 8.49, 222.0, 207000);
             Name = SolarPark.Name;

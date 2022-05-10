@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="API\" />
     <Folder Include="Fonts\" />
     <Folder Include="Images\" />
   </ItemGroup>
@@ -16,6 +17,10 @@
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.8" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="RestSharp" Version="107.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WeatherApi\WeatherApi.csproj" />
   </ItemGroup>
 
 </Project>
