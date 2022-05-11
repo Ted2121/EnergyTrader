@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EnergyTraderWPF.MVVM.ViewModel;
+using WeatherApi;
 
 namespace EnergyTraderWPF
 {
@@ -25,8 +26,8 @@ namespace EnergyTraderWPF
         public MainWindow()
         {
             InitializeComponent();
-            //ApiHelper.InitializeClient();
-            
+            //WeatherInformationWebService.InitializeClient();
+
         }
 
         //private async void Window_Loaded(object sender, RoutedEventArgs e)
