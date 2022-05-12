@@ -11,7 +11,6 @@ namespace EnergyTraderWPF.MVVM.ViewModel
 {
     public class SolarParkViewModel : ObservableObject
     {
-
         SolarParkModel SolarPark { get; set; }
 
         private string _name;
@@ -122,8 +121,6 @@ namespace EnergyTraderWPF.MVVM.ViewModel
             }
         }
 
-
-
         public SolarParkViewModel()
         {
             SolarPark = ViewModelFactory.GetSolarParkModel();
@@ -146,13 +143,7 @@ namespace EnergyTraderWPF.MVVM.ViewModel
             ExpectedProduction = Math.Round(SolarPark.CalculateExpectedProduction(SolarPark.
                 CalculateOutputDurationInSeconds(sunriseInSeconds, sunsetInSeconds)), 2);
             SolarPark.ExpectedProduction = ExpectedProduction;
-            
-
-
         }
-
-
-
 
     }
 }

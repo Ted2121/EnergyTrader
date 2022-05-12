@@ -11,22 +11,17 @@ namespace EnergyTraderWPF.MVVM.Model
 {
     public class WindFarmModel
     {
-        
         public string Name { get; set; }
         public int NumberOfTurbines { get; set; }
         public int TurbineCapacity { get; set; }
         public int TotalNominalPower { get; set; }
         public double Lat { get; set; }
         public double Lon { get; set; }
-
         public double EffectivePower { get; set; }
         public double TotalEffectivePower { get; set; }
         public double ExpectedLoadRate { get; set; }
         public double ExpectedProduction { get; set; }
        
-        //public List<double> EffectivePowers { get; set; }
-        //public List<double> ExpectedLoadRates { get; set; }
-
         List<double> windCurve = new List<double> { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0,
                                          11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0,
                                          20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0};
@@ -52,9 +47,6 @@ namespace EnergyTraderWPF.MVVM.Model
 
             Lat = lat;
             Lon = lon;
-
-            
-            
         }
         public int CalculateTotalNominalPower()
         {
@@ -99,7 +91,6 @@ namespace EnergyTraderWPF.MVVM.Model
             return effectivePower;
         }
 
-
         private double Interpolate(double actualWindSpeed, double leftWind, double leftPower, double rightWind, double rightPower)
         {
             double effectivePower;
@@ -113,30 +104,5 @@ namespace EnergyTraderWPF.MVVM.Model
             return ExpectedLoadRate;
         }
 
-        // takes in weatherInformationResult from the web API
-        //public List<double> GetEffectivePowersList(List<WeatherInformation> weatherInformationResult)
-        //{
-        //    foreach (WeatherInformation weatherInfo in weatherInformationResult)
-        //    {
-        //        EffectivePowers.Add(GetInterpolatedPower(weatherInfo.Wind_Speed));
-        //    }
-
-        //    return EffectivePowers;
-
-        //}
-
-
-        //public List<double> GetExpectedLoadRates(List<WeatherInformation> weatherInformationResult)
-        //{
-        //    foreach (WeatherInformation weatherInfo in weatherInformationResult)
-        //    {
-        //        ExpectedLoadRates.Add(CalculateExpectedLoadRate(weatherInfo.Wind_Speed));
-        //    }
-        //    return ExpectedLoadRates;
-
-        //}
-
     }
-
-    
 }

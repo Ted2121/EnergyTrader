@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:EnergyTraderWPF.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-  
-     <StackPanel>
-        <TextBlock Text="Wind Farm Output"
+
+    <!--<StackPanel>-->
+        <!--<TextBlock Text="Wind Farm Output"
                       Foreground="White"
                       FontSize="28"
                       HorizontalAlignment="Left"
@@ -16,6 +16,8 @@
 
         <StackPanel Orientation="Horizontal"
                     Margin="0, 0, 0, 10">
+
+            
             <Border Width="700"
                      Height="150">
                 <Border.Clip>
@@ -28,6 +30,7 @@
             </Border>
 
         </StackPanel>
+
 
         <TextBlock Text="Solar Farm Output"
                       Foreground="White"
@@ -50,6 +53,6 @@
 
         </StackPanel>
 
-    </StackPanel>
-  
+    </StackPanel>-->
+
 </UserControl>

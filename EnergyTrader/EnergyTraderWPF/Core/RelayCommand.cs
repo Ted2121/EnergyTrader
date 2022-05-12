@@ -22,7 +22,6 @@ namespace EnergyTraderWPF.Core
         {
             _execute = execute;
             _canExecute = canExecute;
-
         }
 
         public bool CanExecute(object parameter)

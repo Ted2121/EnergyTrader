@@ -10,7 +10,6 @@ namespace EnergyTraderWPF.MVVM.ViewModel
 {
     public class ViewModelFactory
     {
-
         private ViewModelFactory() { }
 
         public static WindFarmModel WindFarmModel { get; set; }
@@ -65,7 +64,7 @@ namespace EnergyTraderWPF.MVVM.ViewModel
 
         public static DateTime convertSecondsToDateTime(int sec)
         {
-            DateTime day = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc).ToLocalTime();
+            DateTime day = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).ToLocalTime();
             day = day.AddSeconds(sec).ToLocalTime();
 
             return day;
