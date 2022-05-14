@@ -16,6 +16,7 @@ namespace WeatherApi
             string url = "https://api.openweathermap.org/data/2.5/weather?lat=54.55&lon=11.71&appid=75b38672184fbcb994200c92948dacd6";
 
             var client = new RestClient(url);
+          
             var request = new RestRequest();
             var response = client.GetAsync(request).Result;
 

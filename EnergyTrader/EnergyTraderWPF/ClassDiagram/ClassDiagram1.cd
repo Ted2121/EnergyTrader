@@ -9,7 +9,10 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="EnergyTraderWPF.Core.RelayCommand" BaseTypeListCollapsed="true">
-    <Position X="1.25" Y="2.75" Width="1.75" />
+    <Position X="4.5" Y="0.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Core\RelayCommand.cs</FileName>
@@ -27,7 +30,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="EnergyTraderWPF.MVVM.Model.WindFarmModel">
-    <Position X="9.5" Y="5.25" Width="2.5" />
+    <Position X="8.5" Y="5.25" Width="2.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Properties" Collapsed="true" />
@@ -38,7 +41,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="EnergyTraderWPF.MVVM.View.DashboardView" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7.75" Y="4" Width="1.5" />
+    <Position X="7.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\DashboardView.xaml.cs</FileName>
@@ -54,7 +57,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="EnergyTraderWPF.MVVM.View.WindFarmView" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="10.25" Y="4" Width="1.5" />
+    <Position X="9.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\View\WindFarmView.xaml.cs</FileName>
@@ -62,47 +65,89 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="EnergyTraderWPF.MVVM.ViewModel.DashboardViewModel" Collapsed="true">
-    <Position X="7.75" Y="2.75" Width="1.75" />
+    <Position X="7.5" Y="3" Width="1.75" />
+    <InheritanceLine Type="EnergyTraderWPF.Core.ObservableObject" ManuallyRouted="true">
+      <Path>
+        <Point X="7.5" Y="2.055" />
+        <Point X="7.5" Y="2.858" />
+        <Point X="8.375" Y="2.858" />
+        <Point X="8.375" Y="3" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\ViewModel\DashboardViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EnergyTraderWPF.MVVM.ViewModel.MainViewModel" Collapsed="true">
-    <Position X="3.25" Y="2.75" Width="1.5" />
+    <Position X="3.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAACAAAAAAAAAAEAIAoAAAAAAAAgAAAACAAAAAA=</HashCode>
       <FileName>MVVM\ViewModel\MainViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EnergyTraderWPF.MVVM.ViewModel.SolarParkViewModel" Collapsed="true">
-    <Position X="5.5" Y="2.75" Width="1.75" />
+    <Position X="5.5" Y="3" Width="1.75" />
     <TypeIdentifier>
       <HashCode>gBQAYAAAAGAQiICAIAAAAAQAAAgAAAIAAAEEAAAAAAQ=</HashCode>
       <FileName>MVVM\ViewModel\SolarParkViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EnergyTraderWPF.MVVM.ViewModel.ViewModelFactory">
-    <Position X="12.25" Y="2.75" Width="2.5" />
+    <Position X="11.25" Y="3" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAEAAAAAAgAQAAAQABAAAAEAAAEAABgIAA=</HashCode>
       <FileName>MVVM\ViewModel\ViewModelFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EnergyTraderWPF.MVVM.ViewModel.WindFarmViewModel" Collapsed="true">
-    <Position X="10.25" Y="2.75" Width="1.5" />
+    <Position X="9.5" Y="3" Width="1.5" />
     <InheritanceLine Type="EnergyTraderWPF.Core.ObservableObject" ManuallyRouted="true" FixedToPoint="true">
       <Path>
         <Point X="7.5" Y="2.055" />
-        <Point X="7.5" Y="2.375" />
-        <Point X="10.812" Y="2.375" />
-        <Point X="10.812" Y="2.75" />
+        <Point X="7.5" Y="2.858" />
+        <Point X="10.062" Y="2.858" />
+        <Point X="10.062" Y="3" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAYAIAAAACIACICAIAEBBAQAEAhAAAAFAAAEIAQAABQ=</HashCode>
       <FileName>MVVM\ViewModel\WindFarmViewModel.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="WeatherApi.WeatherInformationWebService">
+    <Position X="4.75" Y="8.5" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WeatherApi.Wind">
+    <Position X="7.75" Y="8.5" Width="1.5" />
+    <Members>
+      <Property Name="deg" Hidden="true" />
+      <Property Name="gust" Hidden="true" />
+      <Method Name="Wind" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WeatherApi.Sys">
+    <Position X="9.5" Y="8.5" Width="1.5" />
+    <Members>
+      <Property Name="country" Hidden="true" />
+      <Property Name="id" Hidden="true" />
+      <Method Name="Sys" Hidden="true" />
+      <Property Name="type" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EnergyTraderWPF.MainWindow" Collapsed="true">
+    <Position X="3.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
