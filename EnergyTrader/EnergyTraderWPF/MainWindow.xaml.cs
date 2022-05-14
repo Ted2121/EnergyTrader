@@ -26,14 +26,8 @@ namespace EnergyTraderWPF
         public MainWindow()
         {
             InitializeComponent();
-            //WeatherInformationWebService.InitializeClient();
-
+        
         }
 
-        //private async void Window_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    Root root = await WeatherInformationProcessor.LoadWeatherInformationAsync();
-        //    WindFarmViewModel.Wind = root.wind.speed;
-        //}
     }
 }

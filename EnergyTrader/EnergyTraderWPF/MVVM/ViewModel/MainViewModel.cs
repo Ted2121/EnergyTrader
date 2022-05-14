@@ -49,5 +49,7 @@ namespace EnergyTraderWPF.MVVM.ViewModel
             });
 
         }
+
+      
     }
 }
