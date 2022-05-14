@@ -48,21 +48,6 @@ namespace EnergyTraderWPF.MVVM.Model
             Lat = lat;
             Lon = lon;
         }
-        public int CalculateTotalNominalPower()
-        {
-            return TurbineCapacity * NumberOfTurbines;
-        }
-
-        public double CalculateTotalEffectivePower()
-        {
-            return EffectivePower * NumberOfTurbines;
-        }
-
-        public double CalculateExpectedProduction()
-        {
-            return TotalEffectivePower * 24;
-        }
-
         public double GetInterpolatedPower(double actualWindSpeed)
         {
             double leftWind;
@@ -85,11 +70,29 @@ namespace EnergyTraderWPF.MVVM.Model
 
                     effectivePower = Interpolate(actualWindSpeed, leftWind, leftPower, rightWind, rightPower);
 
+                }else if(actualWindSpeed == windCurve[i])
+                {
+                    effectivePower = windCurve[i];
                 }
             }
 
             return effectivePower;
         }
+        public int CalculateTotalNominalPower()
+        {
+            return TurbineCapacity * NumberOfTurbines;
+        }
+
+        public double CalculateTotalEffectivePower()
+        {
+            return EffectivePower * NumberOfTurbines;
+        }
+
+        public double CalculateExpectedProduction()
+        {
+            return TotalEffectivePower * 24;
+        }
+
 
         private double Interpolate(double actualWindSpeed, double leftWind, double leftPower, double rightWind, double rightPower)
         {
