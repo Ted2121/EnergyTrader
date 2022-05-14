@@ -48,6 +48,13 @@ namespace EnergyTraderWPF.MVVM.Model
             Lat = lat;
             Lon = lon;
         }
+        private double Interpolate(double actualWindSpeed, double leftWind, double leftPower, double rightWind, double rightPower)
+        {
+            double effectivePower;
+
+            effectivePower = leftPower + ((rightPower - leftPower) / (rightWind - leftWind)) * (actualWindSpeed - leftWind);
+            return Math.Round(effectivePower, 2);
+        }
         public double GetInterpolatedPower(double actualWindSpeed)
         {
             double leftWind;
@@ -94,13 +101,6 @@ namespace EnergyTraderWPF.MVVM.Model
         }
 
 
-        private double Interpolate(double actualWindSpeed, double leftWind, double leftPower, double rightWind, double rightPower)
-        {
-            double effectivePower;
-
-            effectivePower = leftPower + ((rightPower - leftPower) / (rightWind - leftWind)) * (actualWindSpeed - leftWind);
-            return Math.Round(effectivePower, 2);
-        }
         public double CalculateExpectedLoadRate(double actualWindSpeed)
         {
             ExpectedLoadRate = (100 * GetInterpolatedPower(actualWindSpeed)) / TurbineCapacity;
