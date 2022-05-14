@@ -16,12 +16,12 @@ namespace EnergyTraderWPF.MVVM.ViewModel
         public WindFarmViewModel WindFarmVM { get; set; }
         public SolarParkViewModel SolarParkVM { get; set; }
 
-        private object _currentView;
+        private object _currentViewModel;
 
-        public object CurrentView
+        public object CurrentViewModel
         {
-            get { return _currentView; }
-            set { _currentView = value;
+            get { return _currentViewModel; }
+            set { _currentViewModel = value;
                 OnPropertyChanged();
             }
         }
@@ -31,21 +31,21 @@ namespace EnergyTraderWPF.MVVM.ViewModel
             DashboardVM = ViewModelFactory.GetDashboardViewModel();
             WindFarmVM = ViewModelFactory.GetWindFarmViewModel();
             SolarParkVM = ViewModelFactory.GetSolarParkViewModel();
-            CurrentView = DashboardVM;
+            CurrentViewModel = DashboardVM;
 
             DashBoardViewCommand = new RelayCommand(o => 
             { 
-                CurrentView = DashboardVM;
+                CurrentViewModel = DashboardVM;
             });
 
             WindFarmViewCommand = new RelayCommand(o =>
             {
-                CurrentView = WindFarmVM;
+                CurrentViewModel = WindFarmVM;
             });
 
             SolarParkViewCommand = new RelayCommand(o =>
             {
-                CurrentView = SolarParkVM;
+                CurrentViewModel = SolarParkVM;
             });
 
         }
