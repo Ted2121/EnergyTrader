@@ -80,6 +80,9 @@ namespace EnergyTraderWPF.MVVM.Model
                 }else if(actualWindSpeed == windCurve[i])
                 {
                     effectivePower = windCurve[i];
+                }else if(actualWindSpeed > 30)
+                {
+                    effectivePower = 0;
                 }
             }
 
