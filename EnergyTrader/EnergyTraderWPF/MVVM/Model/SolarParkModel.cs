@@ -25,6 +25,13 @@ namespace EnergyTraderWPF.MVVM.Model
             TotalNominalPower = totalNominalPower;
 
         }
+        public double CalculateExpectedProduction(int outputDuration)
+        {
+            // we multiply the total capacity of the solar panels
+            // with the output duration (transformed from seconds to hours) and
+            // with an average efficiency of conversion
+            return TotalNominalPower * (outputDuration / 3600) * 0.22;
+        }
 
         public TimeSpan CalculateOutputDuration(DateTime sunrise, DateTime sunset)
         {
@@ -38,12 +45,5 @@ namespace EnergyTraderWPF.MVVM.Model
             return sunset - sunrise;
         }
 
-        public double CalculateExpectedProduction(int outputDuration)
-        {
-            // we multiply the total capacity of the solar panels
-            // with the output duration (transformed from seconds to hours) and
-            // with an average efficiency of conversion
-            return TotalNominalPower * (outputDuration / 3600) * 0.22;
-        }
     }
 }

@@ -125,6 +125,7 @@ namespace EnergyTraderWPF.MVVM.ViewModel
         {
             SolarPark = ViewModelFactory.GetSolarParkModel();
             var sunInformation = ViewModelFactory.GetSunriseAndSunsetFromApi();
+
             int sunriseInSeconds = sunInformation.Item1;
             int sunsetInSeconds = sunInformation.Item2;  
             Sunrise = ViewModelFactory.
